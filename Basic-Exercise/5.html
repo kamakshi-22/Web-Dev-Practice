@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="animate('target')">
+    <!--onload event occurs when an object has been loaded. onload is most often used within the <body> element to execute a script once a web page has completely -->
+
+    <!--
+        Write a JavaScript program to rotate the string 'w3resource' in right direction by periodically removing one letter from the end of the string and attaching it to the front. 
+    -->
+    <pre id="target">kamakshi</pre>
+    <!--<pre> tag defines preformatted text. Text in a <pre> element is displayed in a fixed-width font, and the text preserves both spaces and line breaks.-->
+
+        <script>
+            function animate(id)
+            {
+                const element = document.getElementById(id);
+                const textNode = element.childNodes[0]; 
+                // produce HTML content of the first child node
+                //assuming no other children
+                let text = textNode.data;
+                var n = text.length;
+                
+                /*
+                    The setInterval() method calls a function at specified intervals (in milliseconds), continues calling until clearInterval() is called, or the window is closed.
+                    1 second = 1000 milliseconds.
+
+                    setInterval(function () {element.innerHTML += "Hi"}, 1000);
+                    setInterval(displayHello, 1000);
+                */
+                setInterval(function()
+                {
+                    text = text[n-1] + text.substring(0,n-1);
+                    console.log("this is text: " + text);
+                    /*substring: extracts a section of string and returns as 
+                    new string*/
+                    textNode.data=text;
+                }, 500);
+            }
+        </script>
+
+    
+</body>
+</html>
