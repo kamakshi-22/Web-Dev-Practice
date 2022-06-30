@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<body>
+<p>Given String: </p> <p id="original"></p>
+<p>Answer: </p> <p id="ans"></p>
+</body>
+<script>
+
+/*
+    \b beginning of the word
+    /g search globally
+    m multiline matching
+    \s whitespace character
+    \d digit
+    ? 0 or 1 occurrences
+    i case insensitive
+*/
+
+function func(str1){
+//returns words with three chars in the string
+return str1.match(/\b\w{3}\b/g);
+
+//remove all the numbers
+return str.replaceAll(/\d+/g,"");
+
+//find monetary value i.e $9.99 => 9.99
+return str.match(/(?<=\$)\d+\.\d+/g);
+
+//find telephone number i.e. 0800 300 500
+return str.match(/\d{4}\s\d{3}\s\d{3}/g);
+
+//email address
+return str.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
+
+//return array of numbers after removing symbols
+return str.match(/\b[0-9]+\b/g);
+
+//name container in string after colon :
+return str.match(/[:][ ]*\w+/g)[0].substring(2, str.length);
+
+
+}
+const str1="The quick brown fox jumped over the lazy dog";
+document.getElementById("original").innerHTML = str1;
+document.getElementById("ans").innerHTML = func(str1);
+</script>
+</html>
